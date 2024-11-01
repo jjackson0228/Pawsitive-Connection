@@ -1,3 +1,4 @@
 import User from './User';
+import Shelter from './Shelter';
 
-export default { User };
+export default { User, Shelter };
