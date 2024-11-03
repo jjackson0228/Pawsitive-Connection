@@ -1,0 +1,94 @@
+{
+  "users": [
+    {
+      "username": "john_doe",
+      "email": "john.doe@example.com",
+      "password": "password123",
+      "pets": []
+    },
+    {
+      "username": "jane_smith",
+      "email": "jane.smith@example.com",
+      "password": "mypassword456",
+      "pets": []
+    },
+    {
+      "username": "alice_wonder",
+      "email": "alice.wonder@example.com",
+      "password": "securepass789",
+      "pets": []
+    }
+  ],
+  "pets": [
+    {
+      "name": "Buddy",
+      "type": "Dog",
+      "age": 3,
+      "color": "Golden",
+      "description": "Friendly and loves to play fetch.",
+      "image": "https://example.com/images/buddy.jpg"
+    },
+    {
+      "name": "Whiskers",
+      "type": "Cat",
+      "age": 2,
+      "color": "Gray",
+      "description": "Calm and enjoys sunbathing.",
+      "image": "https://example.com/images/whiskers.jpg"
+    },
+    {
+      "name": "Charlie",
+      "type": "Bird",
+      "age": 1,
+      "color": "Green",
+      "description": "Loves to chirp and is very social.",
+      "image": "https://example.com/images/charlie.jpg"
+    },
+    {
+      "name": "Max",
+      "type": "Rabbit",
+      "age": 4,
+      "color": "White",
+      "description": "Gentle and enjoys being held.",
+      "image": "https://example.com/images/max.jpg"
+    },
+    {
+      "name": "Goldie",
+      "type": "Fish",
+      "age": 1,
+      "color": "Orange",
+      "description": "Swims gracefully and is easy to care for.",
+      "image": "https://example.com/images/goldie.jpg"
+    }
+  ],
+  "shelters": [
+    {
+      "name": "Happy Tails Shelter",
+      "location": "1234 Maple Street, Springfield",
+      "capacity": 50,
+      "description": "A safe haven for dogs and cats looking for their forever homes.",
+      "pets": ["615a3b0e65a7c5b7f8a02c89", "615a3b0e65a7c5b7f8a02c8a"]
+    },
+    {
+      "name": "Safe Haven Animal Rescue",
+      "location": "5678 Oak Avenue, Riverdale",
+      "capacity": 30,
+      "description": "A community-supported shelter for pets in need of care.",
+      "pets": ["615a3b0e65a7c5b7f8a02c8b"]
+    },
+    {
+      "name": "Paws and Claws Sanctuary",
+      "location": "9101 Pine Road, Meadowbrook",
+      "capacity": 20,
+      "description": "A no-kill shelter dedicated to finding homes for all pets.",
+      "pets": []
+    },
+    {
+      "name": "Animal Friends Shelter",
+      "location": "2468 Elm Drive, Sunnyvale",
+      "capacity": 40,
+      "description": "A shelter focusing on the rehabilitation of rescued animals.",
+      "pets": ["615a3b0e65a7c5b7f8a02c8c", "615a3b0e65a7c5b7f8a02c8d"]
+    }
+  ]
+}
