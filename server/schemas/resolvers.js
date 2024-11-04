@@ -26,7 +26,28 @@ const resolvers = {
       }
     },
 
-    //
+    // get all shelters
+    getAllShelters: async () => {
+      try {
+        const shelters = await Shelter.find().populate("pets");
+        return shelters;
+      } catch (err) {
+        throw new Error("Error getting shelters");
+      }
+    },
+
+    // get a shelter by ID
+    getShelterById: async (_, { id }) => {
+      try {
+        const shelter = await Shelter.findById(id).populate("pets");
+        if (!shelter) {
+          throw new Error("Shelter not found");
+        }
+        return shelter;
+      } catch (err) {
+        throw new Error("Error getting shelter");
+      }
+    },
 
     // get user with pets
     user: async (parents, args, context) => {
