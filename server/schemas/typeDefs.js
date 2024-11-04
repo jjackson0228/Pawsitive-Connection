@@ -17,6 +17,15 @@ type Pet {
   createdAt: String!
 }
 
+type Shelter {
+  id: ID!
+  name: String!
+  location: String!
+  capacity: Int!
+  pets: [Pet]
+  description: String
+}
+
 type Auth {
   token: ID!
   user: User
@@ -25,12 +34,21 @@ type Auth {
 type Query {
   getAllPets: [Pet]
   getPetById(id: ID!): Pet
+  getAllShelters: [Shelter]
+  getShelterById(id: ID!): Shelter
   user: User
+  pets(filter: PetFilterInput): [Pet]
 }
 
 type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
+}
+
+input PetFilterInput {
+  type: String
+  age: Int
+  color: String
 }
 `;
 
