@@ -1,4 +1,5 @@
-import User from './User';
-import Shelter from './Shelter';
+const User = require('./User');
+const Pet = require('./Pet');
+const Shelter = require('./Shelter');
 
-export default { User, Shelter };
+module.exports = { User, Shelter, Pet };

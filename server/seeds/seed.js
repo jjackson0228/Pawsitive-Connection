@@ -1,7 +1,7 @@
 const db = require('../config/connection');
 const dataSeeds = require('./dataSeeds.json');
 const cleanDB = require('./cleanDB');
-const { Pets, Shelter, User } = require('../models');
+const { Pet, Shelter, User } = require('../models');
 
 db.once('open', async () => {
   try {
@@ -11,7 +11,7 @@ db.once('open', async () => {
     await cleanDB('User', 'users');
 
     // Seed data into each collection
-    await Pets.create(dataSeeds.pets);
+    await Pet.create(dataSeeds.pets);
     await Shelter.create(dataSeeds.shelters);
     await User.create(dataSeeds.users);
 
