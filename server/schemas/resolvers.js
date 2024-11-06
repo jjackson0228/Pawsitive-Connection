@@ -78,7 +78,7 @@ const resolvers = {
     },
 
     // user login
-    login: async (parent, { username, password }) => {
+    login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
