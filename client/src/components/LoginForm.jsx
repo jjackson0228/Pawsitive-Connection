@@ -1,65 +1,107 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
-const LoginForm = ({ onLogin }) => {
-  // State for username and password
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+// inline style
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+`;
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+const Input = styled.input`
+  margin: 10px 0;
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
 
-    // Basic validation
-    if (!username || !password) {
-      setError('Both fields are required');
-      return;
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+`;
+
+const Button = styled.button`
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+function LoginForm(props) {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log("Email:", formState.email); // Check email value
+    console.log("Password:", formState.password); // Check password value
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
     }
+  };
 
-    // Call the onLogin prop with the username and password
-    onLogin({ username, password });
-
-    // Clear fields after submission
-    setUsername('');
-    setPassword('');
-    setError('');
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} style={formStyle}>
-      <h2>Login</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <Form onSubmit={handleFormSubmit}>
       
       <div>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+        <label htmlFor="email">Email</label>
+        <Input
+          type="email"
+          id="email"
+          name="email"
+          value={formState.email}
+          onChange={handleChange}
           required
-          style={inputStyle}
         />
       </div>
       
       <div>
         <label htmlFor="password">Password</label>
-        <input
+        <Input
           type="password"
           id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          name="password"
+          value={formState.password}
+          onChange={handleChange}
           required
-          style={inputStyle}
         />
       </div>
 
-      <button type="submit" style={buttonStyle}>
+      <Button type="submit">
         Login
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 };
 
 export default LoginForm;
-
