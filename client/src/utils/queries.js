@@ -11,7 +11,6 @@ export const GET_ALL_PETS = gql`
       color
       description
       image
-      createdAt
     }
   }
 `;
@@ -27,7 +26,6 @@ export const GET_PET_BY_ID = gql`
       color
       description
       image
-      createdAt
     }
   }
 `;

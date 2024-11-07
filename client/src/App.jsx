@@ -9,9 +9,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import HeaderComponent from './components/Header';
 
-// ADD THIS:
-// import Nav from "./components/Nav";
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
