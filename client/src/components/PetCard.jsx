@@ -45,7 +45,6 @@ const PetCard = ({ name, type, age, color, description, image }) => {
       <p>Type: {type}</p>
       <p>Age: {age} years</p>
       {color && <p>Color: {color}</p>}
-      <p>Description: {description}</p>
     </Card>
   );
 };

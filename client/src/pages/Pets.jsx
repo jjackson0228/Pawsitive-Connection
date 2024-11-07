@@ -48,7 +48,6 @@ const Pets = () => {
           type={pet.type}
           age={pet.age}
           color={pet.color}
-          description={pet.description}
           image={pet.image}
         />
       ))}
