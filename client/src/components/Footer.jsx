@@ -1,20 +1,21 @@
-import React from 'react';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
-    <footer style={{ padding: '1rem', textAlign: 'center', backgroundColor: '#f1f1f1' }}>
-      <p>
-        &copy; {new Date().getFullYear()} - Created by <strong>Group 2</strong>
-      </p>
-      <p>
+    <footer className="footer">
+      <div className="footer-content">
+        <p className="footer-text">© 2024 - Created by Group 2</p>
         <a
           href="https://github.com/jjackson0228/Pawsitive-Connection"
           target="_blank"
           rel="noopener noreferrer"
+          className="github-link"
         >
-          View our GitHub Repository
+          <FontAwesomeIcon icon={faGithub} /> GitHub Repository
         </a>
-      </p>
+      </div>
     </footer>
   );
 };
