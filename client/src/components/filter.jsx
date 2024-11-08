@@ -51,7 +51,7 @@ const Filter = ({ data, setData }) => {
 
     // Filter by color
     if (selectedColor !== "all") {
-      filteredData = filteredData.filter(item => item.color === selectedColor);
+      filteredData = filteredData.filter(item => item.color.toLowerCase() === selectedColor.toLowerCase());
     }
 
     // Filter by age
@@ -61,7 +61,7 @@ const Filter = ({ data, setData }) => {
 
     // Filter by type
     if (selectedType !== "all") {
-      filteredData = filteredData.filter(item => item.type === selectedType);
+      filteredData = filteredData.filter(item => item.type.toLowerCase() === selectedType.toLowerCase());
     }
 
     setData(filteredData);
