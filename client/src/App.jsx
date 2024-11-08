@@ -33,7 +33,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       {<HeaderComponent />}
-      <div className="main-content"></div>
+      {/* <div className="main-content"></div> */}
       <Outlet />
       <Footer />
     </ApolloProvider>

@@ -88,7 +88,7 @@
       "name": "Sophie",
       "type": "Cat",
       "age": 4,
-      "color": "Black and White",
+      "color": "Black",
       "description": "Curious and loves to explore.",
       "image": "https://images.saymedia-content.com/.image/t_share/MTc4NzY1OTM3MzIyMTczOTUx/black-and-white-cat-breeds.jpg"
     },
@@ -96,7 +96,7 @@
       "name": "Rocky",
       "type": "Dog",
       "age": 1,
-      "color": "Brindle",
+      "color": "Brown",
       "description": "Energetic and loves to play fetch.",
       "image": "https://paradepets.com/.image/t_share/MTkxMzY1Nzg4OTU4MjA1NDcz/brindle-mixed-breed.jpg"
     },
@@ -104,7 +104,7 @@
       "name": "Luna",
       "type": "Cat",
       "age": 2,
-      "color": "Siamese",
+      "color": "Gray",
       "description": "Affectionate and loves to be around people.",
       "image": "https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-06/Siamese%201.jpg?h=c17eaee4&itok=BRsemy6v"
     }
