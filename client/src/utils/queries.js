@@ -98,6 +98,17 @@ export const GET_PETS_WITH_FILTER = gql`
   }
 `;
 
+// query to fetch user profile
+export const GET_USER_PROFILE = gql`
+  query getUserProfile($id: ID!) {
+    getUserProfile(id: $id) {
+      _id
+      username
+      email
+    }
+  }
+`;
+
 export default {
   GET_ALL_PETS,
   GET_PET_BY_ID,
@@ -105,4 +116,5 @@ export default {
   GET_SHELTER_BY_ID,
   GET_USER,
   GET_PETS_WITH_FILTER,
+  GET_USER_PROFILE,
 };
