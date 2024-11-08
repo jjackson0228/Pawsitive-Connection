@@ -33,10 +33,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <HeaderComponent />
-      <div className="main-content">
-        <Outlet /> {/* Renders child routes based on current path */}
-      </div>
+      {<HeaderComponent />}
+      {/* <div className="main-content"></div> */}
+      <Outlet />
       <Footer />
     </ApolloProvider>
   );

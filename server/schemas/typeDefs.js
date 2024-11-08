@@ -38,6 +38,7 @@ type Query {
   getShelterById(id: ID!): Shelter
   user: User
   pets(filter: PetFilterInput): [Pet]
+  getUserProfile(id: ID!): User
 }
 
 type Mutation {
