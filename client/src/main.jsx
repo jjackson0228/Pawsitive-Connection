@@ -8,6 +8,7 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Profile from "./pages/Profile.jsx";
 import Pets from "./pages/Pets.jsx";
+import PetDetails from "./pages/PetDetails.jsx";
 import Shelters from "./pages/Shelters.jsx";
 import "./index.css";
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/pets",
         element: <Pets />,
+      },
+      {
+        path: "pet/:id",
+        element: <PetDetails />,
       },
       {
         path: "/shelters",
