@@ -42,23 +42,18 @@ const Pets = () => {
   const displayPets = filteredData || pets;
 
   return (
-    <section>
-      {/* <Filter data={pets} setdata={setFilteredData} /> */}
-
-      <PetsContainer>
-        {displayPets.map((pet) => (
-          <PetCard
-            key={pet._id}
-            name={pet.name}
-            type={pet.type}
-            age={pet.age}
-            color={pet.color}
-            description={pet.description}
-            image={pet.image}
-          />
-        ))}
-      </PetsContainer>
-    </section>
+    <PetsContainer>
+      {pets.map((pet) => (
+        <PetCard
+          key={pet._id}
+          name={pet.name}
+          type={pet.type}
+          age={pet.age}
+          color={pet.color}
+          image={pet.image}
+        />
+      ))}
+    </PetsContainer>
   );
 };
 

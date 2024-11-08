@@ -1,8 +1,20 @@
-const { User, Pet, Shelter } = require("../models");
-const { signToken, AuthenticationError } = require("../utils/auth");
+const { User, Pet, Shelter } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    getUserProfile: async (parent, { id }) => {
+      try {
+        const userProfile = await User.findById(id);
+        if (!userProfile) {
+          throw new Error('User profile not found');
+        }
+        return userProfile;
+      } catch (err) {
+        throw new Error(`Error getting User ${err.message}`);
+      }
+    },
+
     // get all pets
     getAllPets: async () => {
       try {
@@ -18,7 +30,7 @@ const resolvers = {
       try {
         const pet = await Pet.findById(id);
         if (!pet) {
-          throw new Error("Pet not found");
+          throw new Error('Pet not found');
         }
         return pet;
       } catch (err) {
@@ -29,23 +41,23 @@ const resolvers = {
     // get all shelters
     getAllShelters: async () => {
       try {
-        const shelters = await Shelter.find().populate("pets");
+        const shelters = await Shelter.find().populate('pets');
         return shelters;
       } catch (err) {
-        throw new Error("Error getting shelters");
+        throw new Error('Error getting shelters');
       }
     },
 
     // get a shelter by ID
     getShelterById: async (_, { id }) => {
       try {
-        const shelter = await Shelter.findById(id).populate("pets");
+        const shelter = await Shelter.findById(id).populate('pets');
         if (!shelter) {
-          throw new Error("Shelter not found");
+          throw new Error('Shelter not found');
         }
         return shelter;
       } catch (err) {
-        throw new Error("Error getting shelter");
+        throw new Error('Error getting shelter');
       }
     },
 
@@ -54,17 +66,17 @@ const resolvers = {
       if (context.user) {
         try {
           const user = await User.findById(context.user.id).populate({
-            path: "pets",
+            path: 'pets',
           });
           if (!user) {
-            throw new Error("User not found");
+            throw new Error('User not found');
           }
           return user;
         } catch (err) {
           throw new Error(`Error getting user ${err.message}`);
         }
       } else {
-        throw new Error("User not authenticated");
+        throw new Error('User not authenticated');
       }
     },
   },
