@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -37,8 +38,9 @@ const Card = styled.div`
 
 // this is the card that goes in Pets.jsx
 
-const PetCard = ({ name, type, age, color, description, image }) => {
+const PetCard = ({ id, name, type, age, color, description, image }) => {
   return (
+    <Link to={`/pet/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
     <Card className="pet-card">
       <img src={image} alt={name} />
       <h2>{name}</h2>
@@ -46,6 +48,7 @@ const PetCard = ({ name, type, age, color, description, image }) => {
       <p>Age: {age} years</p>
       {color && <p>Color: {color}</p>}
     </Card>
+  </Link>
   );
 };
 
