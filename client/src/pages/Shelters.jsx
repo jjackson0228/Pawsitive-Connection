@@ -23,10 +23,12 @@ export const GET_ALL_SHELTERS = gql`
 
 const SheltersContainer = styled.div`
   display: flex;
-  flex-direction: column; /* Stack cards vertically */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: center; /* Center the cards */
   padding: 20px;
   padding-top: 150px;
-  width: 90%;
+  margin: 0 auto; /* Center the container */
+  max-width: 1200px; /* Set a max width for better readability */
 `;
 
 // shelters page

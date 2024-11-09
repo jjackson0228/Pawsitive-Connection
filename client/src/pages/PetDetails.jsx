@@ -25,12 +25,53 @@ const SAVE_PET_TO_PROFILE = gql`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh; /* Full height for centering */
+  background-color: #f9f9f9; /* Light background color */
+`;
+
 const Card = styled.div`
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px; /* Limit the card width */
+  text-align: center; /* Center text */
+  
   img {
-    max-width: 80%;
-    width: 50%
-    height: 50%
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
     border-radius: 8px;
+  }
+
+  h2 {
+    margin: 15px 0;
+    font-size: 24px; /* Larger font size for the name */
+  }
+
+  p {
+    margin: 10px 0;
+    font-size: 16px; /* Font size for details */
+    color: #555; /* Darker text for better readability */
+  }
+`;
+
+const SaveButton = styled.button`
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3; /* Darker shade on hover */
   }
 `;
 
@@ -61,18 +102,16 @@ const PetDetails = () => {
   };
 
   return (
-    <Card className="pet-details">
-      <img
-        src={image}
-        alt={name}
-        style={{ width: "100%", borderRadius: "8px" }}
-      />
-      <h2>{name}</h2>
-      <p>Type: {type}</p>
-      <p>Age: {age} years</p>
-      <p>Description: {description}</p>
-      <button onClick={handleSavePet}>Save to Profile</button>
-    </Card>
+    <Container>
+      <Card className="pet-details">
+        <img src={image} alt={name} />
+        <h2>{name}</h2>
+        <p>Type: {type}</p>
+        <p>Age: {age} years</p>
+        <p>{description}</p>
+        <SaveButton onClick={handleSavePet}>Save to Profile</SaveButton>
+      </Card>
+    </Container>
   );
 };
 
