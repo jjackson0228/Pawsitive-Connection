@@ -1,6 +1,7 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useQuery, gql, useMutation } from '@apollo/client';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useQuery, gql, useMutation } from "@apollo/client";
+import styled from "@emotion/styled";
 
 const GET_PET_BY_ID = gql`
   query GetPetById($id: ID!) {
@@ -21,6 +22,15 @@ const SAVE_PET_TO_PROFILE = gql`
       success
       message
     }
+  }
+`;
+
+const Card = styled.div`
+  img {
+    max-width: 80%;
+    width: 50%
+    height: 50%
+    border-radius: 8px;
   }
 `;
 
@@ -51,14 +61,18 @@ const PetDetails = () => {
   };
 
   return (
-    <div className="pet-details">
-      <img src={image} alt={name} style={{ width: "100%", borderRadius: "8px" }} />
+    <Card className="pet-details">
+      <img
+        src={image}
+        alt={name}
+        style={{ width: "100%", borderRadius: "8px" }}
+      />
       <h2>{name}</h2>
       <p>Type: {type}</p>
       <p>Age: {age} years</p>
       <p>Description: {description}</p>
       <button onClick={handleSavePet}>Save to Profile</button>
-    </div>
+    </Card>
   );
 };
 

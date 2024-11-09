@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import React from "react";
+import { Link } from "react-router-dom";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 const Card = styled.div`
   border: 1px solid #ccc;
@@ -40,15 +40,15 @@ const Card = styled.div`
 
 const PetCard = ({ id, name, type, age, color, description, image }) => {
   return (
-    <Link to={`/pet/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-    <Card className="pet-card">
-      <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <p>Type: {type}</p>
-      <p>Age: {age} years</p>
-      {color && <p>Color: {color}</p>}
-    </Card>
-  </Link>
+    <Link to={`/pet/${id}`} className="pet-card">
+      <Card className="pet-card">
+        <img src={image} alt={name} />
+        <h2>{name}</h2>
+        <p>Type: {type}</p>
+        <p>Age: {age} years</p>
+        {color && <p>Color: {color}</p>}
+      </Card>
+    </Link>
   );
 };
 
