@@ -1,8 +1,22 @@
-import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-import ProfileCard from '../components/ProfileCard';
-import styled from '@emotion/styled';
-import { GET_USER_PROFILE } from '../utils/queries';
+import React, { useEffect } from "react";
+import { useQuery, gql } from "@apollo/client";
+import ProfileCard from "../components/ProfileCard";
+import styled from "@emotion/styled";
+
+export const GET_USER = gql`
+  query GetUser {
+    user {
+      _id
+      username
+      email
+      pets {
+        _id
+        name
+        type
+      }
+    }
+  }
+`;
 
 const ProfileContainer = styled.div`
   display: flex;
@@ -21,25 +35,17 @@ const PetsContainer = styled.div`
   width: 100%;
 `;
 
-const Profile = ({ userId }) => {
-  const { loading, error, data } = useQuery(GET_USER_PROFILE, {
-    variables: { id: '672d2d7111974fc11284fc95' },
-  });
+const Profile = () => {
+  const { loading, error, data } = useQuery(GET_USER);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching profile: {error.message}</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
-  const profile = data?.getUserProfile || {};
-
+  {/* Use data.user.username or whatever you're trying to access */}
+  
   return (
     <ProfileContainer>
-      <ProfileCard user={profile} />
-      <h2>Pets</h2>
-      <PetsContainer>
-        {/* {profile.pets.map((pet) => ( */}
-        <ProfileCard user={profile} />
-        {/* ))} */}
-      </PetsContainer>
+      <ProfileCard key={data.user._id} username={data.user.username} email={data.user.email} pets={data.user.pets}/>
     </ProfileContainer>
   );
 };

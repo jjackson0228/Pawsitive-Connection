@@ -1,5 +1,5 @@
-const { User, Pet, Shelter } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { User, Pet, Shelter } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -7,7 +7,7 @@ const resolvers = {
       try {
         const userProfile = await User.findById(id);
         if (!userProfile) {
-          throw new Error('User profile not found');
+          throw new Error("User profile not found");
         }
         return userProfile;
       } catch (err) {
@@ -30,7 +30,7 @@ const resolvers = {
       try {
         const pet = await Pet.findById(id);
         if (!pet) {
-          throw new Error('Pet not found');
+          throw new Error("Pet not found");
         }
         return pet;
       } catch (err) {
@@ -41,44 +41,63 @@ const resolvers = {
     // get all shelters
     getAllShelters: async () => {
       try {
-        const shelters = await Shelter.find().populate('pets');
+        const shelters = await Shelter.find().populate("pets");
         return shelters;
       } catch (err) {
-        throw new Error('Error getting shelters');
+        throw new Error("Error getting shelters");
       }
     },
 
     // get a shelter by ID
     getShelterById: async (_, { id }) => {
       try {
-        const shelter = await Shelter.findById(id).populate('pets');
+        const shelter = await Shelter.findById(id).populate("pets");
         if (!shelter) {
-          throw new Error('Shelter not found');
+          throw new Error("Shelter not found");
         }
         return shelter;
       } catch (err) {
-        throw new Error('Error getting shelter');
+        throw new Error("Error getting shelter");
       }
     },
 
     // get user with pets
     user: async (parents, args, context) => {
-      if (context.user) {
-        try {
-          const user = await User.findById(context.user.id).populate({
-            path: 'pets',
-          });
-          if (!user) {
-            throw new Error('User not found');
-          }
-          return user;
-        } catch (err) {
-          throw new Error(`Error getting user ${err.message}`);
-        }
-      } else {
-        throw new Error('User not authenticated');
+  console.log('Context user:', context.user);
+  
+  if (context.user) {
+    console.log('lalalaa'); // Log the user ID
+
+    try {
+      const user = await User.findById(context.user._id).populate({
+        path: 'pets',
+      });
+      
+      if (!user) {
+        console.log("user not found in resolver");
+        throw new Error('User not found');
       }
-    },
+      console.log(`User is ${user}`);
+      return user;
+      
+    } catch (err) {
+      console.log("error was caught on user resolver");
+      throw new Error(`Error getting user: ${err.message}`);
+    }
+  } else {
+    console.log("user not authed");
+    throw new Error('User not authenticated');
+  }
+},
+
+    // backup get user since above one is not working
+    /* user: async (parents, args, context) => {
+      if (context.user) {
+        return context.user; // Return the user directly from context
+      } else {
+        throw new Error("User not authenticated");
+      }
+    }, */
   },
   Mutation: {
     // creates user

@@ -39,6 +39,23 @@ const Details = styled.p`
   margin: 5px 0;
 `;
 
+const ProfileCard = ({ username, email, pets }) => {
+  return (
+    <CardContainer>
+      {/* You can add an Avatar if you have a URL for it */}
+      {/* <Avatar src={avatarUrl} alt={`${username}'s avatar`} /> */}
+      <Username>{username}</Username>
+      <Bio>{email}</Bio>
+      {/* You can add more details if needed */}
+      <Details></Details>
+    </CardContainer>
+  );
+}
+
+export default ProfileCard;
+
+
+{/* CODE THAT WAS HERE BEFORE FIX:
 const ProfileCard = ({ user }) => {
   return (
     <CardContainer>
@@ -48,7 +65,7 @@ const ProfileCard = ({ user }) => {
       {/* alt={`${profile.username || profile.name}'s avatar`} */}
       {/* /> */}
       {/* )} */}
-      <p>{user.username || user.email}</p>
+      {/*<p>{user.username || user.email}</p>*/}
       {/* {profile.bio && <Bio>{profile.bio}</Bio>}
       {profile.location && (
         <Details>
@@ -74,9 +91,7 @@ const ProfileCard = ({ user }) => {
         <Details>
           <strong>Color:</strong> {profile.color}
         </Details>
-      )} */}
+      )} */}{/*
     </CardContainer>
   );
-};
-
-export default ProfileCard;
+}; */}
