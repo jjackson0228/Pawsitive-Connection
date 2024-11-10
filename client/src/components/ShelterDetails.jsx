@@ -4,6 +4,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import styled from "@emotion/styled";
+import DonateBox from './DonateBox';
 
 export const GET_SHELTER_BY_ID = gql`
   query GetShelterById($id: ID!) {
@@ -46,6 +47,7 @@ const Subtitle = styled.h2`
 const PetList = styled.ul`
   list-style: none;
   padding: 0;
+  
 `;
 
 const PetItem = styled.li`
@@ -95,6 +97,9 @@ export default function ShelterDetails() {
       ) : (
         <p>No pets available at this shelter.</p>
       )}
+
+      {/* Donation Box */}
+      <DonateBox />
     </Container>
   );
 }

@@ -103,7 +103,6 @@ export default function Home() {
       </div>
       
       <AdoptButton onClick={handleAdoptClick}>Adopt</AdoptButton>
-      <DonateBox />
     </Container>
   );
 }
