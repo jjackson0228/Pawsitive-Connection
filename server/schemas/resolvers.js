@@ -126,6 +126,22 @@ const resolvers = {
 
       return { token, user };
     },
+
+    addPetToShelter: async (_, { shelterId, petId }) => {
+      try {
+        // Find the shelter and push the pet's ID into the pets array
+        const updatedShelter = await Shelter.findByIdAndUpdate(
+          shelterId,
+          { $addToSet: { pets: petId } }, // Use $addToSet to avoid duplicates
+          { new: true } // Return the updated document
+        ).populate('pets'); // Populate pets to return the full shelter object with pets
+
+        return updatedShelter;
+      } catch (err) {
+        console.error('Error adding pet to shelter:', err);
+        throw new Error('Could not add pet to shelter');
+      }
+    },
   },
 };
 

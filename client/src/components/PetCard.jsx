@@ -20,8 +20,8 @@ const Card = styled.div`
   }
 
   img {
-    max-width: 80%; // Adjusted image size
-    height: auto; // Maintain aspect ratio
+    max-width: 130px; //
+    max-height: 130px; //
     border-radius: 8px;
   }
 

@@ -25,7 +25,14 @@ const PetsContainer = styled.div`
   justify-content: center;
   padding: 20px;
   padding-top: 80px;
+  margin: 0 350px;
   background-color: #f9f9f9;
+`;
+
+const FilterContainer = styled.div`
+  display: flex;
+  justify-content: center; // Center the filter bar horizontally
+  margin-bottom: 20px; // Optional: add some space below the filter
 `;
 
 const Pets = () => {
@@ -42,9 +49,10 @@ const Pets = () => {
 
   return (
     <section style={{ marginTop: "50px" }}>
-      {/* Pass pets and setFilteredData as props to the Filter component */}
-      <Filter data={pets} setData={setFilteredData} />
-
+      <FilterContainer>
+        {/* Pass pets and setFilteredData as props to the Filter component */}
+        <Filter data={pets} setData={setFilteredData} />
+      </FilterContainer>
       <PetsContainer>
         {displayPets.map((pet) => (
           <PetCard
