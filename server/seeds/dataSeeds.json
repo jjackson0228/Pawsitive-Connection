@@ -26,7 +26,8 @@
       "age": 3,
       "color": "Golden",
       "description": "Friendly and loves to play fetch.",
-      "image": "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg"
+      "image": "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg",
+      "shelter": "Happy Tails Shelter"
     },
     {
       "name": "Whiskers",
@@ -115,28 +116,28 @@
       "location": "1234 Maple Street, Springfield",
       "capacity": 50,
       "description": "A safe haven for dogs and cats looking for their forever homes.",
-      "pets": ["615a3b0e65a7c5b7f8a02c89", "615a3b0e65a7c5b7f8a02c8a", "672bea0ab9d3587898c3ed88", "672bea0ab9d3587898c3ed89"]
+      "pets": []
     },
     {
       "name": "Safe Haven Animal Rescue",
       "location": "5678 Oak Avenue, Riverdale",
       "capacity": 30,
       "description": "A community-supported shelter for pets in need of care.",
-      "pets": ["615a3b0e65a7c5b7f8a02c8b", "672bea0ab9d3587898c3ed87"]
+      "pets": []
     },
     {
       "name": "Paws and Claws Sanctuary",
       "location": "9101 Pine Road, Meadowbrook",
       "capacity": 20,
       "description": "A no-kill shelter dedicated to finding homes for all pets.",
-      "pets": ["672bea0ab9d3587898c3ed85", "672bea0ab9d3587898c3ed86", "672bea0ab9d3587898c3ed8a"]
+      "pets": []
     },
     {
       "name": "Animal Friends Shelter",
       "location": "2468 Elm Drive, Sunnyvale",
       "capacity": 40,
       "description": "A shelter focusing on the rehabilitation of rescued animals.",
-      "pets": ["615a3b0e65a7c5b7f8a02c8c", "615a3b0e65a7c5b7f8a02c8d"]
+      "pets": []
     }
   ]
 }

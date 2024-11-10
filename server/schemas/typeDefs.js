@@ -44,6 +44,7 @@ type Query {
 type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
+  addPetToShelter(shelterId: ID!, petId: ID!): Shelter
 }
 
 input PetFilterInput {

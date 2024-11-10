@@ -10,9 +10,19 @@ db.once('open', async () => {
     await cleanDB('Shelter', 'shelters');
     await cleanDB('User', 'users');
 
-    // Seed data into each collection
-    await Pet.create(dataSeeds.pets);
-    await Shelter.create(dataSeeds.shelters);
+    // Seed data into Pets collection
+    const createdPets = await Pet.create(dataSeeds.pets);
+
+    // Prepare shelters with specific pets
+    const sheltersWithPets = dataSeeds.shelters.map((shelter, index) => ({
+      ...shelter,
+      pets: [createdPets[index]._id] // Associate only one pet per shelter
+    }));
+
+    // Seed data into Shelter collection
+    await Shelter.create(sheltersWithPets);
+
+    // If you have user data, seed it as well
     await User.create(dataSeeds.users);
 
     console.log('All done!');
