@@ -3,6 +3,8 @@ type User {
   _id: ID!
   username: String!
   email: String!
+  bio: String
+  avatar: String
   pets: [Pet]
 }
 
