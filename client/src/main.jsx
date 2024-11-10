@@ -12,6 +12,7 @@ import PetDetails from "./pages/PetDetails.jsx";
 import Shelters from "./pages/Shelters.jsx";
 import "./index.css";
 import ShelterDetails from "./components/ShelterDetails.jsx";
+import SignupPage from './pages/SignupPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,8 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/signup",
-        element: <Signup />,
+        path: "/signupPage",
+        element: <SignupPage />,
       },
       {
         path: "/profile",

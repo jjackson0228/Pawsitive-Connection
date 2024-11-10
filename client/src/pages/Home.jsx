@@ -101,10 +101,9 @@ export default function Home() {
           <p>No pets found.</p>
         )}
       </div>
-      <ButtonContainer>
-        <AdoptButton onClick={handleAdoptClick}>Adopt</AdoptButton>
-        <DonateBox />
-      </ButtonContainer>
+      
+      <AdoptButton onClick={handleAdoptClick}>Adopt</AdoptButton>
+      <DonateBox />
     </Container>
   );
 }

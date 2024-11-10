@@ -64,33 +64,32 @@ const resolvers = {
     // get user with pets
     user: async (parents, args, context) => {
       console.log('Context user:', context.user);
-
+      
       if (context.user) {
         console.log('lalalaa'); // Log the user ID
-
+    
         try {
-          const user = await context.db.User.findById(
-            context.user._id
-          ).populate({
+          const user = await User.findById(context.user._id).populate({
             path: 'pets',
           });
-
+          
           if (!user) {
-            console.log('user not found in resolver');
+            console.log("user not found in resolver");
             throw new Error('User not found');
           }
           console.log(`User is ${user}`);
           return user;
+          
         } catch (err) {
-          console.log('error was caught on user resolver');
+          console.log("error was caught on user resolver");
           throw new Error(`Error getting user: ${err.message}`);
         }
       } else {
-        console.log('user not authed');
+        console.log("user not authed");
         throw new Error('User not authenticated');
       }
     },
-
+    
     // backup get user since above one is not working
     /* user: async (parents, args, context) => {
       if (context.user) {
