@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styled from "@emotion/styled";
-import { useNavigate } from "react-router-dom";
-import SearchBar from "../components/Searchbar"; // Import SearchBar component
-import DonateBox from "../components/DonateBox";
+import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
+import SearchBar from '../components/Searchbar'; // Import SearchBar component
+import DonateBox from '../components/DonateBox';
 
 const Container = styled.div`
   text-align: center;
@@ -28,8 +28,15 @@ const Description = styled.p`
   line-height: 1.5;
 `;
 
-const AdoptButton = styled.button`
+const ButtonContainer = styled.div`
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
+const AdoptButton = styled.button`
   padding: 15px 30px;
   font-size: 1.5em;
   color: white;
@@ -46,12 +53,11 @@ const AdoptButton = styled.button`
 
 export default function Home() {
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [pets, setPets] = useState([
-    // Example pets data
-    { name: "Buddy", type: "Dog", age: 2, color: "Brown" },
-    { name: "Mittens", type: "Cat", age: 3, color: "White" },
-    { name: "Goldie", type: "Fish", age: 1, color: "Gold" },
+    { name: 'Buddy', type: 'Dog', age: 2, color: 'Brown' },
+    { name: 'Mittens', type: 'Cat', age: 3, color: 'White' },
+    { name: 'Goldie', type: 'Fish', age: 1, color: 'Gold' },
     // Add more pets here
   ]);
 
@@ -64,7 +70,7 @@ export default function Home() {
   );
 
   const handleAdoptClick = () => {
-    navigate("/pets");
+    navigate('/pets');
   };
 
   const handleSearch = (query) => {
@@ -79,9 +85,7 @@ export default function Home() {
         home. Explore our wonderful selection of furry friends waiting for their
         forever families.
       </Description>
-
       <SearchBar onSearch={handleSearch} /> {/* Add SearchBar to the page */}
-      
       {/* Display filtered pets */}
       <div>
         {filteredPets.length > 0 ? (
@@ -97,10 +101,9 @@ export default function Home() {
           <p>No pets found.</p>
         )}
       </div>
-      
       <ButtonContainer>
-      <AdoptButton onClick={handleAdoptClick}>Adopt</AdoptButton>
-      <DonateBox />
+        <AdoptButton onClick={handleAdoptClick}>Adopt</AdoptButton>
+        <DonateBox />
       </ButtonContainer>
     </Container>
   );
