@@ -11,13 +11,13 @@ const CardContainer = styled.div`
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%; /* Full width of the card */
-  margin: 10px 0; /* Margin between cards */
+  //margin: 10px 0; /* Margin between cards */
 `;
 
 const InfoContainer = styled.div`
   flex: 1; /* Allow the info container to take up remaining space */
-  padding: 10px;
-`;
+  //padding: 10px;
+  //`;
 
 const Title = styled.h2`
   margin: 0;
