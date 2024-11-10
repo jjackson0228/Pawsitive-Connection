@@ -1,6 +1,59 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery, gql } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
+import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
+import Auth from "../utils/auth";
+
+export const LOGIN_USER = gql`
+  mutation Login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+        email
+      }
+    }
+  }
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+`;
+
+const Input = styled.input`
+  margin: 10px 0;
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+`;
+
+const Button = styled.button`
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +63,8 @@ const Signup = () => {
   });
 
   const [addUser, { error }] = useMutation(ADD_USER);
+  const [loginUser] = useMutation(LOGIN_USER); // Add the login mutation
+  const navigate = useNavigate(); // Initialize useNavigate for redirection
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,17 +74,26 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await addUser({ variables: { ...formData } });
-      // show a success message
-      console.log("User registered successfully!");
+      // Sign up the user
+      const { data } = await addUser({ variables: { ...formData } });
+
+      // Automatically log in the user
+      const { email, password } = formData; // Use email and password
+      const mutationResponse = await loginUser({ variables: { email, password } });
+
+      const token = mutationResponse.data.login.token; // Get the token from the response
+      Auth.login(token); // Use your Auth utility to log in the user
+
+      // Redirect to the home page
+      navigate("/"); // Adjust the path as necessary for your home page
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <Form onSubmit={handleSubmit}>
+      <Input
         type="text"
         name="username"
         value={formData.username}
@@ -37,7 +101,7 @@ const Signup = () => {
         placeholder="Username"
         required
       />
-      <input
+      <Input
         type="email"
         name="email"
         value={formData.email}
@@ -45,7 +109,7 @@ const Signup = () => {
         placeholder="Email"
         required
       />
-      <input
+      <Input
         type="password"
         name="password"
         value={formData.password}
@@ -53,9 +117,9 @@ const Signup = () => {
         placeholder="Password"
         required
       />
-      <button type="submit">Register</button>
+      <Button type="submit">Register</Button>
       {error && <p>Error: {error.message}</p>}
-    </form>
+    </Form>
   );
 };
 

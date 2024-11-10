@@ -74,25 +74,25 @@ function LoginForm(props) {
     <Form onSubmit={handleFormSubmit}>
       
       <div>
-        <label htmlFor="email">Email</label>
         <Input
           type="email"
           id="email"
           name="email"
           value={formState.email}
           onChange={handleChange}
+          placeholder="Email"
           required
         />
       </div>
       
       <div>
-        <label htmlFor="password">Password</label>
         <Input
           type="password"
           id="password"
           name="password"
           value={formState.password}
           onChange={handleChange}
+          placeholder="Password"
           required
         />
       </div>
@@ -100,6 +100,12 @@ function LoginForm(props) {
       <Button type="submit">
         Login
       </Button>
+
+      <div>
+      <p>
+        Need an account? <a href="/signupPage">Sign up here</a>
+      </p>
+    </div>
     </Form>
   );
 };
