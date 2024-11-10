@@ -1,8 +1,8 @@
-import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-import ShelterCard from '../components/ShelterCard';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import React from "react";
+import { useQuery, gql } from "@apollo/client";
+import ShelterCard from "../components/ShelterCard";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 export const GET_ALL_SHELTERS = gql`
   query GetAllShelters {
@@ -25,7 +25,8 @@ const SheltersContainer = styled.div`
   display: flex;
   flex-direction: column; /* Stack cards vertically */
   padding: 20px;
-  padding-top: 80px;
+  padding-top: 150px;
+  width: 90%;
 `;
 
 // shelters page
@@ -37,11 +38,12 @@ export default function Shelters() {
   if (error) return <p>Error: {error.message}</p>;
 
   const shelters = data?.getAllShelters || [];
+  console.log(shelters);
 
   return (
     <SheltersContainer>
       {shelters.map((shelter) => (
-          <ShelterCard key={shelter._id} shelter={shelter} />
+        <ShelterCard key={shelter._id} shelter={shelter} />
       ))}
     </SheltersContainer>
   );

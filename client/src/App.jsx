@@ -1,3 +1,4 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import './App.css';
 import {
@@ -8,7 +9,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import HeaderComponent from './components/Header';
-import Footer from "./components/Footer";
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -32,7 +33,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      {<HeaderComponent />}
+      <HeaderComponent />
       {/* <div className="main-content"></div> */}
       <Outlet />
       <Footer />
