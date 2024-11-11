@@ -28,6 +28,11 @@ type Shelter {
   description: String
 }
 
+type SavePetResponse {
+  success: Boolean!
+  message: String!
+}
+
 type Auth {
   token: ID!
   user: User
@@ -47,6 +52,7 @@ type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
   addPetToShelter(shelterId: ID!, petId: ID!): Shelter
+  savePetToProfile(id: ID!): SavePetResponse
 }
 
 input PetFilterInput {

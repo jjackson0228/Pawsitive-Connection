@@ -57,12 +57,6 @@ const ProfileCard = ({ username, email, pets }) => {
       />
       <Username>{username}</Username>
       <Bio>{email}</Bio>
-      <Bio>
-        {
-          "Hi, I'm Sarah, a dedicated animal lover and passionate advocate for pet adoption. My journey with animals began at a young age when I realized how many wonderful pets were waiting for loving homes. Over the years, I've adopted several furry friends, and each one has taught me something new about loyalty, love, and compassion. I’m particularly drawn to giving older pets and those with special needs a second chance. There's nothing more rewarding than seeing a rescued animal blossom in a home full of love and care. When I'm not volunteering at the local shelter or fostering pets, you can find me exploring new parks with my dogs, attending adoption events, or sharing stories about pet adoption to inspire others. I believe every pet deserves a forever home, and I'm here to help spread the word about the incredible impact adoption can have!"
-        }
-      </Bio>
-      <Details></Details>
     </CardContainer>
   );
 };

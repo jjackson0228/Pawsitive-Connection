@@ -64,32 +64,31 @@ const resolvers = {
     // get user with pets
     user: async (parents, args, context) => {
       console.log('Context user:', context.user);
-      
+
       if (context.user) {
         console.log('lalalaa'); // Log the user ID
-    
+
         try {
           const user = await User.findById(context.user._id).populate({
             path: 'pets',
           });
-          
+
           if (!user) {
-            console.log("user not found in resolver");
+            console.log('user not found in resolver');
             throw new Error('User not found');
           }
           console.log(`User is ${user}`);
           return user;
-          
         } catch (err) {
-          console.log("error was caught on user resolver");
+          console.log('error was caught on user resolver');
           throw new Error(`Error getting user: ${err.message}`);
         }
       } else {
-        console.log("user not authed");
+        console.log('user not authed');
         throw new Error('User not authenticated');
       }
     },
-    
+
     // backup get user since above one is not working
     /* user: async (parents, args, context) => {
       if (context.user) {
@@ -106,6 +105,23 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+
+    //savesPetToProfile
+    savePetToProfile: async (_, { id }, { user }) => {
+      if (!user) {
+        throw new Error('User is not authenticated');
+      }
+      // Find the pet by id and add it to the user's profile
+      const pet = await Pet.findById(id);
+      if (!pet) {
+        throw new Error('Pet not found');
+      }
+
+      // Assuming you have a method to save the pet to the user's profile
+      await User.updateOne({ _id: user._id }, { $push: { pets: pet } });
+
+      return { success: true, message: 'Pet saved to your profile!' };
     },
 
     // user login

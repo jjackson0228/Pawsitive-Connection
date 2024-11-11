@@ -58,7 +58,7 @@ export const GET_USER = gql`
       pets {
         _id
         name
-        type
+        image
       }
     }
   }
