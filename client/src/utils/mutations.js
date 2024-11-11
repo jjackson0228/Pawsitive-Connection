@@ -1,5 +1,5 @@
 // mutations.js
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 // Mutation to add a new user (for signup)
 export const ADD_USER = gql`
@@ -97,10 +97,30 @@ export const ADD_SHELTER = gql`
   }
 `;
 
+export const REMOVE_PET_FROM_USER = gql`
+  mutation RemovePetFromUser($petId: ID!) {
+    removePetFromUser(petId: $petId) {
+      _id
+      username
+      email
+      pets {
+        _id
+        name
+        type
+        age
+        color
+        description
+        image
+      }
+    }
+  }
+`;
+
 export default {
   ADD_USER,
   LOGIN_USER,
   ADD_PET,
   ADD_SHELTER,
   SAVE_PET_TO_PROFILE,
+  REMOVE_PET_FROM_USER,
 };
