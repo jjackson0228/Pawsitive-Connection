@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useNavigate, Link } from 'react-router-dom';
-import SearchBar from '../components/Searchbar'; // Import SearchBar component
-import DonateBox from '../components/DonateBox';
 
 const Container = styled.div`
   text-align: center;
