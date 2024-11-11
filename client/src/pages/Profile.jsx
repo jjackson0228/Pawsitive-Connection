@@ -14,6 +14,10 @@ export const GET_USER = gql`
         _id
         name
         type
+        age
+        color
+        description
+        image
       }
     }
   }
@@ -34,9 +38,7 @@ const LeftSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 40%;
-
   margin-right: 40px;
 `;
 
@@ -46,32 +48,6 @@ const RightSection = styled.div`
   justify-content: center;
   align-items: center;
   width: 60%;
-`;
-
-const Header = styled.h1`
-  font-size: 2.5em;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 20px;
-  background: linear-gradient(45deg, #f39c12, #e74c3c);
-  color: white;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 900px;
-  margin-top: 50px;
-`;
-
-const Avatar = styled.img`
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
 `;
 
 const Bio = styled.p`
@@ -97,13 +73,26 @@ const PetsContainer = styled.div`
   max-width: 800px;
   margin-top: 20px;
 `;
+// Array of random bios
+const bios = [
+  'A passionate animal lover who enjoys spending time with all creatures, big and small. Dedicated to rescuing and caring for pets of all kinds, always looking for new furry friends.',
+
+  'An avid pet lover with a special place in their heart for animals in need. "Lives by the motto: The more pets, the merrier! and can never resist a wagging tail or a soft purr."',
+
+  'A true animal enthusiast who believes that pets make a house a home. Firmly believes that animals bring out the best in us, and is always ready to share love with a furry friend.',
+];
+
+const getRandomBio = () => {
+  const randomIndex = Math.floor(Math.random() * bios.length);
+  return bios[randomIndex];
+};
 
 const Profile = () => {
   const { loading, error, data } = useQuery(GET_USER);
 
   if (loading) return <Message>Loading profile...</Message>;
   if (error) return <Message>Error: {error.message}</Message>;
-
+  const randomBio = getRandomBio();
   return (
     <ProfileContainer>
       <LeftSection>
@@ -116,27 +105,22 @@ const Profile = () => {
       </LeftSection>
 
       <RightSection>
-        <Bio>
-          Hi, I'm Sarah, a dedicated animal lover and passionate advocate for
-          pet adoption. My journey with animals began at a young age when I
-          realized how many wonderful pets were waiting for loving homes. Over
-          the years, I've adopted several furry friends, and each one has taught
-          me something new about loyalty, love, and compassion. I’m particularly
-          drawn to giving older pets and those with special needs a second
-          chance. There's nothing more rewarding than seeing a rescued animal
-          blossom in a home full of love and care. When I'm not volunteering at
-          the local shelter or fostering pets, you can find me exploring new
-          parks with my dogs, attending adoption events, or sharing stories
-          about pet adoption to inspire others. I believe every pet deserves a
-          forever home, and I'm here to help spread the word about the
-          incredible impact adoption can have!
-        </Bio>
+        <Bio>{randomBio}</Bio>
         {data.user.pets.length === 0 ? (
           <Message>No pets added to your profile yet.</Message>
         ) : (
           <PetsContainer>
             {data.user.pets.map((pet) => (
-              <PetCard key={pet._id} pet={pet} />
+              <PetCard
+                key={pet._id}
+                id={pet._id}
+                name={pet.name}
+                type={pet.type}
+                age={pet.age}
+                color={pet.color}
+                description={pet.description}
+                image={pet.image}
+              />
             ))}
           </PetsContainer>
         )}
