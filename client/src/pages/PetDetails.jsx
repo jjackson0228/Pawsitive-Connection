@@ -1,7 +1,7 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { useQuery, gql, useMutation } from "@apollo/client";
-import styled from "@emotion/styled";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery, gql, useMutation } from '@apollo/client';
+import styled from '@emotion/styled';
 
 const GET_PET_BY_ID = gql`
   query GetPetById($id: ID!) {
@@ -41,7 +41,7 @@ const Card = styled.div`
   padding: 20px;
   max-width: 400px; /* Limit the card width */
   text-align: center; /* Center text */
-  
+
   img {
     max-width: 100%;
     height: auto; /* Maintain aspect ratio */
@@ -90,14 +90,15 @@ const PetDetails = () => {
   const handleSavePet = async () => {
     try {
       const response = await savePetToProfile({ variables: { id } });
+      console.log(response);
       if (response.data.savePetToProfile.success) {
-        alert("Pet saved to your profile!");
+        alert('Pet saved to your profile!');
       } else {
         alert(response.data.savePetToProfile.message);
       }
     } catch (err) {
-      console.error("Error saving pet to profile:", err);
-      alert("Failed to save pet. Please try again.");
+      console.error('Error saving pet to profile:', err);
+      alert('Failed to save pet. Please try again.');
     }
   };
 

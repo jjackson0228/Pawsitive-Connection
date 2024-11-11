@@ -15,6 +15,16 @@ export const ADD_USER = gql`
   }
 `;
 
+//mutation for save pet to profile
+export const SAVE_PET_TO_PROFILE = gql`
+  mutation SavePetToProfile($id: ID!) {
+    savePetToProfile(id: $id) {
+      success
+      message
+    }
+  }
+`;
+
 // Mutation for user login
 export const LOGIN_USER = gql`
   mutation Login($email: String!, $password: String!) {
@@ -92,4 +102,5 @@ export default {
   LOGIN_USER,
   ADD_PET,
   ADD_SHELTER,
+  SAVE_PET_TO_PROFILE,
 };
