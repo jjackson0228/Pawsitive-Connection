@@ -43,14 +43,20 @@ const Button = styled.button`
   }
 `;
 
+const ErrorMessage = styled.p`
+  color: red;
+  margin-top: 10px;
+`;
+
 function LoginForm(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
+  const [errorMessage, setErrorMessage] = useState('');
   const [login, { error }] = useMutation(LOGIN_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("Email:", formState.email); // Check email value
-    console.log("Password:", formState.password); // Check password value
+    console.log('Email:', formState.email); // Check email value
+    console.log('Password:', formState.password); // Check password value
     try {
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
@@ -59,6 +65,7 @@ function LoginForm(props) {
       Auth.login(token);
     } catch (e) {
       console.log(e);
+      setErrorMessage('Incorrect email or password. Please try again.');
     }
   };
 
@@ -72,7 +79,6 @@ function LoginForm(props) {
 
   return (
     <Form onSubmit={handleFormSubmit}>
-      
       <div>
         <Input
           type="email"
@@ -84,7 +90,7 @@ function LoginForm(props) {
           required
         />
       </div>
-      
+
       <div>
         <Input
           type="password"
@@ -97,17 +103,15 @@ function LoginForm(props) {
         />
       </div>
 
-      <Button type="submit">
-        Login
-      </Button>
-
+      <Button type="submit">Login</Button>
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <div>
-      <p>
-        Need an account? <a href="/signupPage">Sign up here</a>
-      </p>
-    </div>
+        <p>
+          Need an account? <a href="/signupPage">Sign up here</a>
+        </p>
+      </div>
     </Form>
   );
-};
+}
 
 export default LoginForm;
