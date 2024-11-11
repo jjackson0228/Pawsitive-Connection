@@ -53,6 +53,7 @@ type Mutation {
   login(email: String!, password: String!): Auth
   addPetToShelter(shelterId: ID!, petId: ID!): Shelter
   savePetToProfile(id: ID!): SavePetResponse
+  removePetFromUser(petId: ID!): User
 }
 
 input PetFilterInput {

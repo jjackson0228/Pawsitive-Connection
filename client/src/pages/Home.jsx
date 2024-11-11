@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import SearchBar from '../components/Searchbar'; // Import SearchBar component
 import DonateBox from '../components/DonateBox';
 
 const Container = styled.div`
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 150px;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -14,6 +14,7 @@ const Container = styled.div`
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 275px;
 `;
 
 const Title = styled.h2`
@@ -53,6 +54,7 @@ const AdoptButton = styled.button`
 
 export default function Home() {
   const navigate = useNavigate();
+  /*
   const [searchQuery, setSearchQuery] = useState('');
   const [pets, setPets] = useState([
     { name: 'Buddy', type: 'Dog', age: 2, color: 'Brown' },
@@ -75,7 +77,7 @@ export default function Home() {
 
   const handleSearch = (query) => {
     setSearchQuery(query); // Update the search query
-  };
+  }; */
 
   return (
     <Container>
@@ -85,24 +87,11 @@ export default function Home() {
         home. Explore our wonderful selection of furry friends waiting for their
         forever families.
       </Description>
-      <SearchBar onSearch={handleSearch} /> {/* Add SearchBar to the page */}
-      {/* Display filtered pets */}
-      <div>
-        {filteredPets.length > 0 ? (
-          filteredPets.map((pet, index) => (
-            <div key={index}>
-              <h3>{pet.name}</h3>
-              <p>Type: {pet.type}</p>
-              <p>Age: {pet.age}</p>
-              <p>Color: {pet.color}</p>
-            </div>
-          ))
-        ) : (
-          <p>No pets found.</p>
-        )}
-      </div>
-      
-      <AdoptButton onClick={handleAdoptClick}>Adopt</AdoptButton>
+      <Link to="/pets">
+        <ButtonContainer>
+        <AdoptButton>Adopt</AdoptButton>
+        </ButtonContainer>
+      </Link>
     </Container>
   );
 }

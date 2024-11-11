@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql, useMutation } from '@apollo/client';
 import styled from '@emotion/styled';
@@ -21,6 +21,44 @@ const SAVE_PET_TO_PROFILE = gql`
     savePetToProfile(id: $id) {
       success
       message
+    }
+  }
+`;
+
+export const REMOVE_PET_FROM_USER = gql`
+  mutation RemovePetFromUser($petId: ID!) {
+    removePetFromUser(petId: $petId) {
+      _id
+      username
+      email
+      pets {
+        _id
+        name
+        type
+        age
+        color
+        description
+        image
+      }
+    }
+  }
+`;
+
+export const GET_USER = gql`
+  query GetUser {
+    user {
+      _id
+      username
+      email
+      pets {
+        _id
+        name
+        type
+        age
+        color
+        description
+        image
+      }
     }
   }
 `;
@@ -77,21 +115,33 @@ const SaveButton = styled.button`
 
 const PetDetails = () => {
   const { id } = useParams();
-  const { loading, error, data } = useQuery(GET_PET_BY_ID, {
+  const { loading: loadingPet, error: errorPet, data: petData } = useQuery(GET_PET_BY_ID, {
     variables: { id },
   });
+  const { loading: loadingUser, data: userData } = useQuery(GET_USER);
   const [savePetToProfile] = useMutation(SAVE_PET_TO_PROFILE);
+  const [removePetFromUser] = useMutation(REMOVE_PET_FROM_USER);
+  const [isSaved, setIsSaved] = useState(false); // State to track if the pet is saved
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching pet details: {error.message}</p>;
+  useEffect(() => {
+    if (userData && userData.user && userData.user.pets) {
+      const savedPetIds = userData.user.pets.map(pet => pet._id);
+      setIsSaved(savedPetIds.includes(id)); // Check if the current pet ID is in the user's saved pets
+    }
+  }, [userData, id]);
 
-  const { name, type, age, description, image } = data.getPetById;
+  if (loadingPet) return <p>Loading pet details...</p>;
+  if (errorPet) return <p>Error fetching pet details: {errorPet.message}</p>;
+  if (loadingUser) return <p>Loading user data...</p>;
+
+  const { name, type, age, description, image } = petData.getPetById;
 
   const handleSavePet = async () => {
     try {
       const response = await savePetToProfile({ variables: { id } });
       console.log(response);
       if (response.data.savePetToProfile.success) {
+        setIsSaved(true); // Update the state to indicate the pet is saved
         alert('Pet saved to your profile!');
       } else {
         alert(response.data.savePetToProfile.message);
@@ -99,6 +149,22 @@ const PetDetails = () => {
     } catch (err) {
       console.error('Error saving pet to profile:', err);
       alert('Failed to save pet. Please try again.');
+    }
+  };
+
+  const handleRemovePet = async () => {
+    try {
+      const response = await removePetFromUser({ variables: { petId: id } });
+      console.log(response);
+      if (response.data.removePetFromUser) {
+        setIsSaved(false);
+        alert('Pet removed from your profile!');
+      } else {
+        alert('Failed to remove pet. Please try again.');
+      }
+    } catch (err) {
+      console.error('Error removing pet from profile:', err);
+      alert('Failed to remove pet. Please try again.');
     }
   };
 
@@ -110,7 +176,9 @@ const PetDetails = () => {
         <p>Type: {type}</p>
         <p>Age: {age} years</p>
         <p>{description}</p>
-        <SaveButton onClick={handleSavePet}>Save to Profile</SaveButton>
+        <SaveButton onClick={isSaved ? handleRemovePet : handleSavePet}>
+          {isSaved ? 'Remove from Profile' : 'Save to Profile'}
+        </SaveButton>
       </Card>
     </Container>
   );
