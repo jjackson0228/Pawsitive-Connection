@@ -3,6 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 import PetCard from "../components/PetCard";
 import styled from "@emotion/styled";
 import Filter from "../components/filter";
+import Searchbar from "../components/Searchbar";
 
 export const GET_ALL_PETS = gql`
   query GetAllPets {
@@ -35,7 +36,14 @@ const FilterContainer = styled.div`
   margin-bottom: 20px; // Optional: add some space below the filter
 `;
 
+const SearchbarContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
 const Pets = () => {
+  const [searchQuery, setSearchQuery] = useState("");
   const { loading, error, data } = useQuery(GET_ALL_PETS);
   const [filteredData, setFilteredData] = useState(null);
 
@@ -47,12 +55,23 @@ const Pets = () => {
   // Set filteredData to show all pets initially if no filter is applied
   const displayPets = filteredData || pets;
 
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    const filtered = pets.filter((pet) =>
+      pet.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredData(filtered);
+  };
+
   return (
     <section style={{ marginTop: "50px" }}>
       <FilterContainer>
         {/* Pass pets and setFilteredData as props to the Filter component */}
         <Filter data={pets} setData={setFilteredData} />
       </FilterContainer>
+      <SearchbarContainer>
+        <Searchbar onSearch={handleSearch} />
+      </SearchbarContainer>
       <PetsContainer>
         {displayPets.map((pet) => (
           <PetCard

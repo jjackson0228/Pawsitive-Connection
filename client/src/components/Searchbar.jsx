@@ -1,5 +1,26 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+
+const StyledInput = styled.input`
+  padding: 10px; /* Padding for better spacing */
+  font-size: 1.2em; /* Font size for readability */
+  width: 100%; /* Full width */
+  max-width: 300px; /* Maximum width */
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #ddd; /* Light border */
+  outline: none; /* Remove outline */
+  transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
+
+  &:focus {
+    border-color: #4da3d1; /* Change border color on focus */
+  }
+
+  &::placeholder {
+    color: #aaa; /* Placeholder color */
+    font-style: italic; /* Italic style for placeholder */
+  }
+`;
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
@@ -11,34 +32,12 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div
-      css={css`
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: center;
-      `}
-    >
-      <input
+      <StyledInput
         type="text"
         placeholder="Search for pets..."
         value={query}
         onChange={handleInputChange}
-        css={css`
-          padding: 10px;
-          font-size: 1.2em;
-          width: 100%;
-          max-width: 400px;
-          border-radius: 5px;
-          border: 1px solid #ddd;
-          outline: none;
-          transition: all 0.3s ease-in-out;
-
-          &:focus {
-            border-color: #4da3d1;
-          }
-        `}
       />
-    </div>
   );
 };
 
