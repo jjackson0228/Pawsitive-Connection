@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, gql, useMutation } from '@apollo/client';
 import styled from '@emotion/styled';
+import Auth from '../utils/auth';
 
 const GET_PET_BY_ID = gql`
   query GetPetById($id: ID!) {
@@ -114,6 +115,7 @@ const SaveButton = styled.button`
 `;
 
 const PetDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { loading: loadingPet, error: errorPet, data: petData } = useQuery(GET_PET_BY_ID, {
     variables: { id },
@@ -136,7 +138,14 @@ const PetDetails = () => {
 
   const { name, type, age, description, image } = petData.getPetById;
 
+  // saves pet to profile on button click
   const handleSavePet = async () => {
+    // redirects to login page if user is not logged in
+    if (!Auth.loggedIn()) {
+      navigate('/login');
+      return;
+    }
+
     try {
       const response = await savePetToProfile({ variables: { id } });
       console.log(response);
@@ -152,7 +161,13 @@ const PetDetails = () => {
     }
   };
 
+  // removes pet from profile on button click
   const handleRemovePet = async () => {
+    if (!Auth.loggedIn()) {
+      navigate('/login');
+      return;
+    }
+
     try {
       const response = await removePetFromUser({ variables: { petId: id } });
       console.log(response);

@@ -108,7 +108,7 @@ const HeaderComponent = () => {
       </LogoWrapper>
       <NavbarContainer>
         <StyledNavLink to="/">Home</StyledNavLink>
-        <StyledNavLink to="/profile">Profile</StyledNavLink>
+        <StyledNavLink to={isLoggedIn ? "/profile" : "/login"}>Profile</StyledNavLink>
         <StyledNavLink to="/pets">Pets</StyledNavLink>
         <StyledNavLink to="/shelters">Shelters</StyledNavLink>
         {/* Conditionally render Login/Logout button */}
