@@ -28,7 +28,7 @@ const PageContainer = styled.div`
   padding-top: 20px; /* Space from the top, can adjust as needed */
   min-height: 100vh; /* Ensure it covers the full height */
   justify-content: center;
-  margin-top: 600px;
+  margin-top: 200px 100px;
 `;
 
 const ProfileContainer = styled.div`
@@ -36,7 +36,7 @@ const ProfileContainer = styled.div`
   justify-content: space-around; /* Spaces left and right evenly */
   align-items: flex-start;
   padding: 40px 20px;
-  max-width: 1200px;
+  max-width: 80%;
   width: 100%; /* Ensure it uses full available width */
   margin: 0 auto;
   gap: 20px;

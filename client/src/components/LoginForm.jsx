@@ -12,7 +12,7 @@ const Form = styled.form`
   align-items: center;
   justify-content: center;
   margin: 20px;
-  background-color: #61dafb;
+  background-color: #fff;
 `;
 
 const Input = styled.input`

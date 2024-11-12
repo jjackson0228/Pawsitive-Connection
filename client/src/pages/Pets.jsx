@@ -26,7 +26,7 @@ const PetsContainer = styled.div`
   justify-content: center;
   padding: 20px;
   padding-top: 80px;
-  margin: 0 350px;
+  margin: 0;
   background-color: 133e87;
 `;
 
