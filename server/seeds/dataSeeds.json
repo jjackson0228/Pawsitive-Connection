@@ -26,8 +26,7 @@
       "age": 3,
       "color": "Golden",
       "description": "Friendly and loves to play fetch.",
-      "image": "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg",
-      "shelter": "Happy Tails Shelter"
+      "image": "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/golden-retriever-dog-breed-info.jpeg"
     },
     {
       "name": "Whiskers",
@@ -38,30 +37,6 @@
       "image": "https://images.litter-robot.com/media/wysiwyg/russian-blue-greyx.png"
     },
     {
-      "name": "Charlie",
-      "type": "Bird",
-      "age": 1,
-      "color": "Green",
-      "description": "Loves to chirp and is very social.",
-      "image": "https://lafeber.com/pet-birds/wp-content/uploads/2018/06/Yellow-Naped-Amazon-Parrot.jpg"
-    },
-    {
-      "name": "Max",
-      "type": "Rabbit",
-      "age": 4,
-      "color": "White",
-      "description": "Gentle and enjoys being held.",
-      "image": "https://i.pinimg.com/736x/b8/25/e1/b825e1484a21bb183466a3890df21c39.jpg"
-    },
-    {
-      "name": "Goldie",
-      "type": "Fish",
-      "age": 1,
-      "color": "Orange",
-      "description": "Swims gracefully and is easy to care for.",
-      "image": "https://gradexco.com/wp-content/uploads/2022/11/How-long-do-goldfish-live.webp"
-    },
-    {
       "name": "Bella",
       "type": "Dog",
       "age": 2,
@@ -70,17 +45,17 @@
       "image": "https://www.pawsatlanta.org/assets/stitch_2_r6ZkNNW.jpg"
     },
     {
-      "name": "Oliver",
+      "name": "Pepper",
       "type": "Cat",
       "age": 3,
-      "color": "Orange",
-      "description": "Playful and loves to chase toys.",
-      "image": "https://pets-society.com/wp-content/uploads/2023/02/orange-ginger-cat-1024x769.jpg"
+      "color": "Black",
+      "description": "Playful and curious, loves climbing trees.",
+      "image": "https://hsnaples.org/wp-content/uploads/max_0025-copy-copy.jpg"
     },
     {
       "name": "Daisy",
       "type": "Dog",
-      "age": 5,
+      "age": 1,
       "color": "Brown",
       "description": "Friendly and loves to go for walks.",
       "image": "https://images.unsplash.com/photo-1651044204351-f0a6aab96e3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGJyb3duJTIwZG9nfGVufDB8fDB8fHww"
@@ -102,12 +77,116 @@
       "image": "https://paradepets.com/.image/t_share/MTkxMzY1Nzg4OTU4MjA1NDcz/brindle-mixed-breed.jpg"
     },
     {
+      "name": "Poppy",
+      "type": "Cat",
+      "age": 2,
+      "color": "White",
+      "description": "Affectionate and loves to be around people.",
+      "image": "https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-06/Siamese%201.jpg?h=c17eaee4&itok=BRsemy6v"
+    },
+    {
+      "name": "Milo",
+      "type": "Dog",
+      "age": 1,
+      "color": "Golden",
+      "description": "Loves the beach and always ready for a swim.",
+      "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/227023f5-e310-4b70-a01c-18bb64f5cb0e/IMG_3315.jpg"
+    },
+    {
       "name": "Luna",
+      "type": "Cat",
+      "age": 1,
+      "color": "White",
+      "description": "Shy but affectionate once she warms up to you.",
+      "image": "https://images.squarespace-cdn.com/content/v1/5e8a2944d7ce562e250eb009/1606863576544-FY68XT7M6WXVDN4D8BT2/nalawhite.jpg"
+    },
+    {
+      "name": "Charlie",
+      "type": "Dog",
+      "age": 4,
+      "color": "Brown",
+      "description": "Playful and loves to run outdoors.",
+      "image": "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/dachshund-dog-breed-info.jpeg"
+    },
+    {
+      "name": "Jasper",
       "type": "Cat",
       "age": 2,
       "color": "Gray",
-      "description": "Affectionate and loves to be around people.",
-      "image": "https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-06/Siamese%201.jpg?h=c17eaee4&itok=BRsemy6v"
+      "description": "Friendly and loves cuddles on the couch.",
+      "image": "https://i.pinimg.com/564x/41/db/92/41db92945a13748ea529a6e473b94347.jpg"
+    },
+    {
+      "name": "Sadie",
+      "type": "Dog",
+      "age": 5,
+      "color": "Black",
+      "description": "Gentle and loves being around children.",
+      "image": "https://www.shelterluv.com/sites/default/files/animal_pics/1954/2024/05/08/12/20240508125629.png"
+    },
+    {
+      "name": "Oliver",
+      "type": "Cat",
+      "age": 3,
+      "color": "Orange",
+      "description": "Playful and loves to chase toys.",
+      "image": "https://pets-society.com/wp-content/uploads/2023/02/orange-ginger-cat-1024x769.jpg"
+    },
+    {
+      "name": "Rocky",
+      "type": "Dog",
+      "age": 2,
+      "color": "Brown",
+      "description": "Energetic and loves playing fetch with a ball.",
+      "image": "https://www.shelterluv.com/sites/default/files/animal_pics/1954/2024/05/03/15/20240503151006.png"
+    },
+    {
+      "name": "Charlie",
+      "type": "Bird",
+      "age": 1,
+      "color": "Green",
+      "description": "Loves to chirp and is very social.",
+      "image": "https://lafeber.com/pet-birds/wp-content/uploads/2018/06/Yellow-Naped-Amazon-Parrot.jpg"
+    },
+    {
+      "name": "Bella",
+      "type": "Cat",
+      "age": 4,
+      "color": "White",
+      "description": "Independent and enjoys her space but loves petting.",
+      "image": "https://i.pinimg.com/736x/9a/a6/a0/9aa6a0f30e095c108a8af61062e0704b.jpg"
+    },
+    {
+      "name": "Max",
+      "type": "Rabbit",
+      "age": 4,
+      "color": "White",
+      "description": "Gentle and enjoys being held.",
+      "image": "https://i.pinimg.com/736x/b8/25/e1/b825e1484a21bb183466a3890df21c39.jpg"
+    },
+    {
+      "name": "Goldie",
+      "type": "Fish",
+      "age": 1,
+      "color": "Orange",
+      "description": "Swims gracefully and is easy to care for.",
+      "image": "https://gradexco.com/wp-content/uploads/2022/11/How-long-do-goldfish-live.webp"
+    },
+    {
+      "name": "Theo",
+      "type": "Dog",
+      "age": 5,
+      "color": "Golden",
+      "description": "Loyal and loves long walks in the park.",
+      "image": "https://simplysouthernpups.com/azure/southerndogclub/pups/fawn%20adult%20pembroke%20welsh%20corgi.jpg?w=557&h=557&mode=crop&autorotate=1"
+    },
+    {
+      "name": "Toby",
+      "type": "Cat",
+      "age": 2,
+      "color": "Brown",
+      "description": "Quiet and enjoys a calm environment.",
+      "image": "https://images.litter-robot.com/media/wysiwyg/havana-brown-cat_2.png"
     }
   ],
   "shelters": [
@@ -116,28 +195,49 @@
       "location": "1234 Maple Street, Springfield",
       "capacity": 50,
       "description": "A safe haven for dogs and cats looking for their forever homes.",
-      "pets": []
+      "petIndexes": [0, 1, 15]
     },
     {
       "name": "Safe Haven Animal Rescue",
       "location": "5678 Oak Avenue, Riverdale",
       "capacity": 30,
       "description": "A community-supported shelter for pets in need of care.",
-      "pets": []
+      "petIndexes": [2, 5, 16]
     },
     {
       "name": "Paws and Claws Sanctuary",
       "location": "9101 Pine Road, Meadowbrook",
       "capacity": 20,
       "description": "A no-kill shelter dedicated to finding homes for all pets.",
-      "pets": []
+      "petIndexes": [3, 7, 17]
     },
     {
       "name": "Animal Friends Shelter",
       "location": "2468 Elm Drive, Sunnyvale",
       "capacity": 40,
       "description": "A shelter focusing on the rehabilitation of rescued animals.",
-      "pets": []
+      "petIndexes": [4, 8, 19]
+    },
+    {
+      "name": "Furry Hearts Rescue",
+      "location": "1122 Birch Lane, Oakwood",
+      "capacity": 35,
+      "description": "A rescue organization dedicated to giving second chances to pets in need.",
+      "petIndexes": [6, 10, 18]
+    },
+    {
+      "name": "Hopeful Paws Shelter",
+      "location": "2233 Cedar Boulevard, Brookhaven",
+      "capacity": 25,
+      "description": "A non-profit shelter that strives to provide a safe environment for abandoned animals.",
+      "petIndexes": [9, 11, 20]
+    },
+    {
+      "name": "Whiskers & Tails Animal Refuge",
+      "location": "4567 Willow Way, Greenfield",
+      "capacity": 60,
+      "description": "A caring shelter offering a temporary home for stray and abandoned animals, with the goal of finding them loving families.",
+      "petIndexes": [12, 13, 14]
     }
   ]
 }

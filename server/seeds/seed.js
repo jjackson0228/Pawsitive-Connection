@@ -13,11 +13,16 @@ db.once('open', async () => {
     // Seed data into Pets collection
     const createdPets = await Pet.create(dataSeeds.pets);
 
-    // Prepare shelters with specific pets
-    const sheltersWithPets = dataSeeds.shelters.map((shelter, index) => ({
-      ...shelter,
-      pets: [createdPets[index]._id] // Associate only one pet per shelter
-    }));
+    // Map shelters to add the correct pet references (assuming dataSeeds.shelters has an array of pet IDs)
+    const sheltersWithPets = dataSeeds.shelters.map((shelter, index) => {
+      // Ensure we don't run out of pets for shelters
+      const petIds = shelter.petIndexes.map(index => createdPets[index]._id);
+
+      return {
+        ...shelter,
+        pets: petIds  // Associate multiple pets per shelter
+      };
+    });
 
     // Seed data into Shelter collection
     await Shelter.create(sheltersWithPets);
