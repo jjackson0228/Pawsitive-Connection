@@ -28,7 +28,7 @@ const PageContainer = styled.div`
   padding-top: 20px; /* Space from the top, can adjust as needed */
   min-height: 100vh; /* Ensure it covers the full height */
   justify-content: center;
-  margin-top: 200px 100px;
+  margin-top: 200px;
 `;
 
 const ProfileContainer = styled.div`
