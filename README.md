@@ -80,11 +80,13 @@ To set up this project locally, follow the steps below:
 
 # Deployed Screenshots
 
+![Screenshot 2024-11-12 3 36 51 PM](https://github.com/user-attachments/assets/d562798b-0e40-4497-9024-f735d7f7124a)
 
+![Screenshot 2024-11-12 3 37 12 PM](https://github.com/user-attachments/assets/f1e1b3b9-69c3-4edd-a124-3be470ba96d5)
 
+![Screenshot 2024-11-12 3 37 05 PM](https://github.com/user-attachments/assets/84b9d7a7-d106-42f0-b998-be30077138df)
 
-
-
+![Screenshot 2024-11-12 3 37 23 PM](https://github.com/user-attachments/assets/c552647c-8bb1-4b6e-878b-6419f66c14be)
 
 # Contributing
 
