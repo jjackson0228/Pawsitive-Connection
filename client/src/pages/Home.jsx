@@ -3,21 +3,22 @@ import styled from '@emotion/styled';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 150px;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  background-color: #f0e6d2;
+  border-radius: 0; /* Removes rounded corners to fill edges */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 275px;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margins */
 `;
-
 const Title = styled.h2`
   color: #333;
-  font-size: 2.5em;
+  font-size: 3em;
   margin-bottom: 10px;
 `;
 
@@ -87,7 +88,7 @@ export default function Home() {
       </Description>
       <Link to="/pets">
         <ButtonContainer>
-        <AdoptButton>Adopt</AdoptButton>
+          <AdoptButton>Adopt</AdoptButton>
         </ButtonContainer>
       </Link>
     </Container>
