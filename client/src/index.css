@@ -97,7 +97,8 @@ button:focus-visible {
   /* Keep it relative for normal flow */
   left: 0;
   right: 0;
-  /* Remove margin-top */
+  bottom: 0;
+
 }
 
 .footer-text {

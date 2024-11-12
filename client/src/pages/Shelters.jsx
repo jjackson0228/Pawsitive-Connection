@@ -27,7 +27,7 @@ const SheltersContainer = styled.div`
   justify-content: center;
   padding: 20px;
   padding-top: 100px;
-  margin: 30px 100px;
+  margin: 100px 100px 400px 100px;
   background-color: #f0e6d2;
 `;
 

@@ -11,7 +11,7 @@ const Card = styled.div`
   text-align: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  background-color: #fff;
+  background-color: white;
   width: 150px; // Set a fixed width for the card
   height: auto; // Allow height to adjust based on content
 

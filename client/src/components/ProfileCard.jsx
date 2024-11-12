@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 
 const CardContainer = styled.div`
   width: 300px;
-  padding: 20px;
-  background-color: F3F3E0;
+
+  background-color: #61dafb;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -18,6 +18,7 @@ const Avatar = styled.img`
   border-radius: 50%;
   margin-bottom: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: tan;
 `;
 
 const Username = styled.h2`
@@ -36,11 +37,7 @@ const Bio = styled.p`
   margin: 5px 0;
 `;
 
-const avatarUrls = [
-  'https://robohash.org/mail@ashallendesign.co.uk',
-  'http://placekitten.com/250/250',
-  'http://placebear.com/250/250',
-];
+const avatarUrls = ['https://robohash.org/mail@ashallendesign.co.uk'];
 
 const getRandomAvatar = () => {
   const randomIndex = Math.floor(Math.random() * avatarUrls.length);

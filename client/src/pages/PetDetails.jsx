@@ -70,7 +70,7 @@ const Container = styled.div`
   align-items: center;
   padding: 20px;
   min-height: 100vh; /* Full height for centering */
-  background-color: #f9f9f9; /* Light background color */
+  background-color: #f0e6d2; /* Light background color */
 `;
 
 const Card = styled.div`
@@ -117,7 +117,11 @@ const SaveButton = styled.button`
 const PetDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { loading: loadingPet, error: errorPet, data: petData } = useQuery(GET_PET_BY_ID, {
+  const {
+    loading: loadingPet,
+    error: errorPet,
+    data: petData,
+  } = useQuery(GET_PET_BY_ID, {
     variables: { id },
   });
   const { loading: loadingUser, data: userData } = useQuery(GET_USER);
@@ -127,7 +131,7 @@ const PetDetails = () => {
 
   useEffect(() => {
     if (userData && userData.user && userData.user.pets) {
-      const savedPetIds = userData.user.pets.map(pet => pet._id);
+      const savedPetIds = userData.user.pets.map((pet) => pet._id);
       setIsSaved(savedPetIds.includes(id)); // Check if the current pet ID is in the user's saved pets
     }
   }, [userData, id]);

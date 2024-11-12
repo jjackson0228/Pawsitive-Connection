@@ -7,7 +7,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full height of the viewport */
-  background-color: #f0f2f5; /* Light background color */
+  background-color: ; /* Tan */
+  margin-top: 100px;
 `;
 
 const Card = styled.div`
