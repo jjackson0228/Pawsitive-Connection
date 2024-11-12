@@ -1,15 +1,13 @@
-import React from "react";
-import Signup from "../pages/Signup";
-import styled from "@emotion/styled";
-
-
+import React from 'react';
+import Signup from '../pages/Signup';
+import styled from '@emotion/styled';
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full height of the viewport */
-  background-color: #f0f2f5; /* Light background color */
+  background-color: #f0e6d2; /* Light background color */
 `;
 
 const Card = styled.div`

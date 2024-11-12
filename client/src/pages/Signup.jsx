@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useMutation, useQuery, gql } from "@apollo/client";
-import { ADD_USER } from "../utils/mutations";
-import styled from "@emotion/styled";
-import { useNavigate } from "react-router-dom";
-import Auth from "../utils/auth";
+import React, { useState } from 'react';
+import { useMutation, useQuery, gql } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
+import Auth from '../utils/auth';
 
 export const LOGIN_USER = gql`
   mutation Login($email: String!, $password: String!) {
@@ -57,9 +57,9 @@ const Button = styled.button`
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: '',
   });
 
   const [addUser, { error }] = useMutation(ADD_USER);
@@ -79,13 +79,15 @@ const Signup = () => {
 
       // Automatically log in the user
       const { email, password } = formData; // Use email and password
-      const mutationResponse = await loginUser({ variables: { email, password } });
+      const mutationResponse = await loginUser({
+        variables: { email, password },
+      });
 
       const token = mutationResponse.data.login.token; // Get the token from the response
       Auth.login(token); // Use your Auth utility to log in the user
 
       // Redirect to the home page
-      navigate("/"); // Adjust the path as necessary for your home page
+      navigate('/'); // Adjust the path as necessary for your home page
     } catch (err) {
       console.error(err);
     }
