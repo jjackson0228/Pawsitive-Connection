@@ -69,6 +69,7 @@ const Filter = ({ data, setData }) => {
           <option value="brown">Brown</option>
           <option value="white">White</option>
           <option value="gray">Gray</option>
+          <option value="golden">Golden</option>
         </FilterSelect>
       </div>
 
