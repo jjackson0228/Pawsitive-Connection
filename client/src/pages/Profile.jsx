@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import ProfileCard from '../components/ProfileCard';
 import styled from '@emotion/styled';
@@ -106,7 +106,15 @@ const getRandomBio = () => {
 };
 
 const Profile = () => {
-  const { loading, error, data } = useQuery(GET_USER);
+  const { loading, error, data, refetch } = useQuery(GET_USER);
+
+  // Trigger a "refresh" of data after it has been loaded successfully
+  useEffect(() => {
+    if (data) {
+      // Here we refetch the data after it is loaded (like a "refresh")
+      refetch();
+    }
+  }, [data, refetch]); // This effect runs only when `data` is available
 
   if (loading) return <Message>Loading profile...</Message>;
   if (error) return <Message>Error: {error.message}</Message>;
