@@ -107,9 +107,9 @@ const HeaderComponent = () => {
   return (
     <HeaderContainer>
       <LogoWrapper>
-        <img src="src/assets/paw-print.png" alt="Paw print" />
+        <img src="paw-print.png" alt="Paw print" />
         Pawsitive Connection
-        <img src="/src/assets/paw-print.png" alt="Paw print" />
+        <img src="paw-print.png" alt="Paw print" />
       </LogoWrapper>
       <NavbarContainer>
         <StyledNavLink to="/">Home</StyledNavLink>
