@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useQuery, gql } from "@apollo/client";
-import PetCard from "../components/PetCard";
-import styled from "@emotion/styled";
-import Filter from "../components/filter";
-import Searchbar from "../components/Searchbar";
+import React, { useState } from 'react';
+import { useQuery, gql } from '@apollo/client';
+import PetCard from '../components/PetCard';
+import styled from '@emotion/styled';
+import Filter from '../components/filter';
+import Searchbar from '../components/Searchbar';
 
 export const GET_ALL_PETS = gql`
   query GetAllPets {
@@ -27,7 +27,7 @@ const PetsContainer = styled.div`
   padding: 20px;
   padding-top: 80px;
   margin: 0 350px;
-  background-color: #f9f9f9;
+  background-color: 133e87;
 `;
 
 const FilterContainer = styled.div`
@@ -43,7 +43,7 @@ const SearchbarContainer = styled.div`
 `;
 
 const Pets = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const { loading, error, data } = useQuery(GET_ALL_PETS);
   const [filteredData, setFilteredData] = useState(null);
 
@@ -64,7 +64,7 @@ const Pets = () => {
   };
 
   return (
-    <section style={{ marginTop: "50px" }}>
+    <section style={{ marginTop: '50px' }}>
       <FilterContainer>
         {/* Pass pets and setFilteredData as props to the Filter component */}
         <Filter data={pets} setData={setFilteredData} />

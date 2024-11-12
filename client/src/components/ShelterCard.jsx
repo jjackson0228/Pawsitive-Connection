@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const CardContainer = styled.div`
   display: flex;
@@ -13,6 +13,7 @@ const CardContainer = styled.div`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
   margin: 10px; /* Added margin between cards */
+  background-color: #fff;
 `;
 
 const InfoContainer = styled.div`
