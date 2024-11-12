@@ -24,42 +24,45 @@ export const GET_USER = gql`
 `;
 
 const PageContainer = styled.div`
-  background-color: #1e90ff; /* Blue background for the entire page */
+  background-color: #f0e6d2; /* Blue background for the entire page */
   padding-top: 20px; /* Space from the top, can adjust as needed */
   min-height: 100vh; /* Ensure it covers the full height */
+  justify-content: center;
+  margin-top: 600px;
 `;
 
 const ProfileContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-around; /* Spaces left and right evenly */
   align-items: flex-start;
-  padding: 40px 20px; /* Consistent padding on top and sides */
+  padding: 40px 20px;
   max-width: 1200px;
-  margin: 0 auto; /* Centers the container */
-  gap: 20px; /* Space between left and right sections */
+  width: 100%; /* Ensure it uses full available width */
+  margin: 0 auto;
+  gap: 20px;
 `;
-
 const LeftSection = styled.div`
+  flex: 1; /* Makes the left section take up 40% of the space */
+  max-width: 40%; /* Ensures a consistent 40% width */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 40%;
-  padding: 20px;
-  background-color: #f0e6d2; /* Tan background for the left section */
+  padding: 80px;
+  background-color: #61dafb;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 `;
 
 const RightSection = styled.div`
+  flex: 1.5; /* Makes the right section take up 60% of the space */
+  max-width: 60%; /* Ensures a consistent 60% width */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 60%;
   padding: 20px;
-  background-color: #f0e6d2; /* Tan background for the right section */
+  background-color: #61dafb;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 `;
