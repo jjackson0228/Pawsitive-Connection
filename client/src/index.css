@@ -18,6 +18,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -33,9 +34,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -46,6 +49,7 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
@@ -54,11 +58,13 @@ button:focus-visible {
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures the root takes at least the full height of the viewport */
+  min-height: 100vh;
+  /* Ensures the root takes at least the full height of the viewport */
 }
 
 .main-content {
-  flex: 1; /* This allows the main content to grow and take available space */
+  flex: 1;
+  /* This allows the main content to grow and take available space */
   padding: 20px;
   background-color: #ffffff;
   display: flex;
@@ -80,13 +86,14 @@ button:focus-visible {
 }
 
 .footer {
-  background-color: #333;
+  background-color: #282c34;
   color: #888;
   padding: 1rem;
   text-align: center;
   border-top: 2px solid #333;
   width: 100%;
-  position: relative; /* Keep it relative for normal flow */
+  position: relative;
+  /* Keep it relative for normal flow */
   left: 0;
   right: 0;
   /* Remove margin-top */
@@ -94,11 +101,11 @@ button:focus-visible {
 
 .footer-text {
   margin: 0.5rem 0;
-  color: #ffffff;
+  color: #f0e6d2;
 }
 
 .github-link {
-  color: #646cff;
+  color: #4da3d1;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;

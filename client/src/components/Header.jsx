@@ -4,7 +4,8 @@ import styled from '@emotion/styled';
 import { useState, useEffect } from 'react';
 
 import Auth from '../utils/auth';
-
+// Tan color variable for reuse
+const tanColor = '#f0e6d2';
 // Styled Header container
 const HeaderContainer = styled.header`
   position: fixed;
@@ -27,14 +28,17 @@ const HeaderContainer = styled.header`
 const LogoWrapper = styled.h1`
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 2rem; /* Increase font size for "Pawsitive Connection" */
   margin: 0;
-  color: #61dafb;
+  color: #61dafb; /* Keep main title color */
   gap: 0.5rem;
 
   img {
-    width: 24px;
-    height: 24px;
+    width: 32px; /* Make paw prints bigger */
+    height: 32px;
+    filter: brightness(0) saturate(100%) invert(80%) sepia(15%) saturate(500%)
+      hue-rotate(25deg) brightness(90%) contrast(90%);
+    /* Apply tan color filter */
   }
 `;
 
@@ -48,10 +52,11 @@ const NavbarContainer = styled.nav`
 // Link styling (using NavLink from react-router-dom)
 const StyledNavLink = styled(RouterNavLink)`
   text-decoration: none;
-  color: #ffffff;
+  color: #f0e6d2;
   font-weight: bold;
   padding: 0.5rem;
   border-radius: 4px;
+  font-size: 1.1rem; /* Slightly larger font size for navigation links */
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -108,7 +113,9 @@ const HeaderComponent = () => {
       </LogoWrapper>
       <NavbarContainer>
         <StyledNavLink to="/">Home</StyledNavLink>
-        <StyledNavLink to={isLoggedIn ? "/profile" : "/login"}>Profile</StyledNavLink>
+        <StyledNavLink to={isLoggedIn ? '/profile' : '/login'}>
+          Profile
+        </StyledNavLink>
         <StyledNavLink to="/pets">Pets</StyledNavLink>
         <StyledNavLink to="/shelters">Shelters</StyledNavLink>
         {/* Conditionally render Login/Logout button */}

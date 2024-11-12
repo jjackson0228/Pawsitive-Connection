@@ -23,45 +23,61 @@ export const GET_USER = gql`
   }
 `;
 
+const PageContainer = styled.div`
+  background-color: #1e90ff; /* Blue background for the entire page */
+  padding-top: 20px; /* Space from the top, can adjust as needed */
+  min-height: 100vh; /* Ensure it covers the full height */
+`;
+
 const ProfileContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  padding-top: 100px;
-  background-color: #f9f9f9;
-  min-height: 100vh;
+  align-items: flex-start;
+  padding: 40px 20px; /* Consistent padding on top and sides */
+  max-width: 1200px;
+  margin: 0 auto; /* Centers the container */
+  gap: 20px; /* Space between left and right sections */
 `;
 
 const LeftSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   width: 40%;
-  margin-right: 40px;
+  padding: 20px;
+  background-color: #f0e6d2; /* Tan background for the left section */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 `;
 
 const RightSection = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  text-align: center;
   width: 60%;
+  padding: 20px;
+  background-color: #f0e6d2; /* Tan background for the right section */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 `;
 
 const Bio = styled.p`
-  font-size: 1em;
-  color: #555;
-  margin: 5px 0;
+  font-size: 2em;
+  color: #333;
+  margin: 10px 0;
   text-align: center;
   max-width: 700px;
+  padding: 10px;
 `;
 
 const Message = styled.p`
   font-size: 1.2em;
-  color: #777;
+  color: #666;
   text-align: center;
+  margin-top: 20px;
 `;
 
 const PetsContainer = styled.div`
@@ -73,12 +89,11 @@ const PetsContainer = styled.div`
   max-width: 800px;
   margin-top: 20px;
 `;
+
 // Array of random bios
 const bios = [
   'A passionate animal lover who enjoys spending time with all creatures, big and small. Dedicated to rescuing and caring for pets of all kinds, always looking for new furry friends.',
-
-  'An avid pet lover with a special place in their heart for animals in need. "Lives by the motto: The more pets, the merrier! and can never resist a wagging tail or a soft purr."',
-
+  'An avid pet lover with a special place in their heart for animals in need. "Lives by the motto: The more pets, the merrier!" and can never resist a wagging tail or a soft purr.',
   'A true animal enthusiast who believes that pets make a house a home. Firmly believes that animals bring out the best in us, and is always ready to share love with a furry friend.',
 ];
 
@@ -93,39 +108,42 @@ const Profile = () => {
   if (loading) return <Message>Loading profile...</Message>;
   if (error) return <Message>Error: {error.message}</Message>;
   const randomBio = getRandomBio();
-  return (
-    <ProfileContainer>
-      <LeftSection>
-        <ProfileCard
-          key={data.user._id}
-          username={data.user.username}
-          email={data.user.email}
-          pets={data.user.pets}
-        />
-      </LeftSection>
 
-      <RightSection>
-        <Bio>{randomBio}</Bio>
-        {data.user.pets.length === 0 ? (
-          <Message>No pets added to your profile yet.</Message>
-        ) : (
-          <PetsContainer>
-            {data.user.pets.map((pet) => (
-              <PetCard
-                key={pet._id}
-                id={pet._id}
-                name={pet.name}
-                type={pet.type}
-                age={pet.age}
-                color={pet.color}
-                description={pet.description}
-                image={pet.image}
-              />
-            ))}
-          </PetsContainer>
-        )}
-      </RightSection>
-    </ProfileContainer>
+  return (
+    <PageContainer>
+      <ProfileContainer>
+        <LeftSection>
+          <ProfileCard
+            key={data.user._id}
+            username={data.user.username}
+            email={data.user.email}
+            pets={data.user.pets}
+          />
+        </LeftSection>
+
+        <RightSection>
+          <Bio>{randomBio}</Bio>
+          {data.user.pets.length === 0 ? (
+            <Message>No pets added to your profile yet.</Message>
+          ) : (
+            <PetsContainer>
+              {data.user.pets.map((pet) => (
+                <PetCard
+                  key={pet._id}
+                  id={pet._id}
+                  name={pet.name}
+                  type={pet.type}
+                  age={pet.age}
+                  color={pet.color}
+                  description={pet.description}
+                  image={pet.image}
+                />
+              ))}
+            </PetsContainer>
+          )}
+        </RightSection>
+      </ProfileContainer>
+    </PageContainer>
   );
 };
 

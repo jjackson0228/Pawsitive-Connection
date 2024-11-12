@@ -4,9 +4,8 @@ import styled from '@emotion/styled';
 const CardContainer = styled.div`
   width: 300px;
   padding: 20px;
-  background-color: #fff;
+  background-color: F3F3E0;
   border-radius: 10px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,15 +13,15 @@ const CardContainer = styled.div`
 `;
 
 const Avatar = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 `;
 
 const Username = styled.h2`
-  font-size: 2em;
+  font-size: 3em;
   font-weight: 800;
   color: #2c3e50;
   margin: 15px 0;
@@ -32,7 +31,7 @@ const Username = styled.h2`
 `;
 
 const Bio = styled.p`
-  font-size: 1em;
+  font-size: 2em;
   color: #555;
   margin: 5px 0;
 `;
